@@ -6,9 +6,9 @@ A Keycloak SPI plugin that tracks last login time for each user by storing times
 
 On every successful `LOGIN` event, the plugin:
 
-- Copies the existing `last-login` value into `prior-login` (preserving the previous session's timestamp)
-- Writes `last-login` — ISO 8601 UTC string (e.g. `2026-07-13T10:30:00Z`)
-- Writes `last-login-timestamp` — raw epoch milliseconds as a string
+- Copies the existing `last_login` value into `prior_login` (preserving the previous session's timestamp)
+- Writes `last_login` — ISO 8601 UTC string (e.g. `2026-07-13T10:30:00Z`)
+- Writes `last_login_timestamp` — raw epoch milliseconds as a string
 
 Admin events are intentionally ignored.
 
@@ -38,9 +38,9 @@ The JAR will be produced at `build/libs/`.
 
 | Attribute | Type | Description |
 |---|---|---|
-| `last-login` | ISO 8601 UTC string | Timestamp of the most recent login |
-| `last-login-timestamp` | String (epoch ms) | Timestamp of the most recent login as epoch milliseconds |
-| `prior-login` | ISO 8601 UTC string | Timestamp of the previous login |
+| `last_login` | ISO 8601 UTC string | Timestamp of the most recent login |
+| `last_login_timestamp` | String (epoch ms) | Timestamp of the most recent login as epoch milliseconds |
+| `prior_login` | ISO 8601 UTC string | Timestamp of the previous login |
 
 ## Credits
 

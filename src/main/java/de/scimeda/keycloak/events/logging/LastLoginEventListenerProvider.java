@@ -37,10 +37,10 @@ public class LastLoginEventListenerProvider implements EventListenerProvider {
         log.info("Updating last login status for user: " + user.getUsername());
 
         var userAttrs = user.getAttributes();
-        if (userAttrs.containsKey("last-login")) {
-            var userLastLogin = userAttrs.get("last-login");
+        if (userAttrs.containsKey("last_login")) {
+            var userLastLogin = userAttrs.get("last_login");
             if (userLastLogin != null && !userLastLogin.isEmpty()) {
-                user.setSingleAttribute("prior-login", userLastLogin.get(0));
+                user.setSingleAttribute("prior_login", userLastLogin.get(0));
             }
         }
 
@@ -48,8 +48,8 @@ public class LastLoginEventListenerProvider implements EventListenerProvider {
         var loginTime = event.getTime();
         var loginTimeS = Instant.ofEpochMilli(loginTime).atOffset(ZoneOffset.UTC).toString();
 
-        user.setSingleAttribute("last-login", loginTimeS);
-        user.setSingleAttribute("last-login-timestamp", Long.toString(loginTime));
+        user.setSingleAttribute("last_login", loginTimeS);
+        user.setSingleAttribute("last_login_timestamp", Long.toString(loginTime));
     }
 
     @Override
